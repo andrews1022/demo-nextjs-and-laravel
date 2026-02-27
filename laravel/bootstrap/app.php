@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Throwable;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -15,5 +16,23 @@ return Application::configure(basePath: dirname(__DIR__))
         //
     })
     ->withExceptions(function (Exceptions $exceptions): void {
-        //
+        // Force Laravel to return JSON for ALL errors if the request wants JSON or is an /api/* route
+        $exceptions->shouldRenderJsonWhen(function ($request) {
+            if ($request->is('api/*')) {
+                return true;
+            }
+
+            return $request->expectsJson();
+        });
+
+        // Customize the response structure
+        $exceptions->render(function (Throwable $error) {
+            return response()->json([
+                'error' => [
+                    'message' => $error->getMessage(),
+                    'errorCode' => 'INTERNAL_ERROR',
+                    'statusCode' => 500,
+                ]
+            ], 500);
+        });
     })->create();
