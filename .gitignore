@@ -1,0 +1,32 @@
+# Next.js / Node
+next/node_modules/
+next/.next/
+next/out/
+next/build/
+next/.env*.local
+
+# Laravel / PHP
+laravel/vendor/
+laravel/.env
+laravel/storage/*.key
+laravel/storage/framework/cache/*
+laravel/storage/framework/sessions/*
+laravel/storage/framework/views/*
+laravel/storage/logs/*
+laravel/bootstrap/cache/*
+
+# General
+.DS_Store
+.env
+
+# VS Code
+.vscode/
+.idea/
+
+# Environment Variables
+.env
+.env.*
+*.env
+
+# Keep .env.example to provide a template
+!.env.example 
