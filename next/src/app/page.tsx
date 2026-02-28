@@ -1,3 +1,5 @@
+import ApiButton from "@/components/ApiButton";
+
 import styles from "./page.module.css";
 
 const HomePage = () => {
@@ -5,7 +7,7 @@ const HomePage = () => {
     <div className={styles.homePageWrapper}>
       <h1>Next.js & Laravel Demo</h1>
       <p>A simple demo app with a Next.js frontend and a Laravel backend.</p>
-      <button type="button">Get Data</button>
+      <ApiButton />
     </div>
   );
 };
