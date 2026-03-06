@@ -14,9 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Call the JsonUserSeeder
+        // Call the necessary seeders in the correct order
         $this->call([
-            JsonUserSeeder::class
+            JsonUserSeeder::class,
+            JsonPostSeeder::class,
         ]);
     }
 }
