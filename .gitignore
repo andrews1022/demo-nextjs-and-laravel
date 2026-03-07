@@ -15,6 +15,7 @@ laravel/storage/framework/views/*
 laravel/storage/logs/*
 laravel/bootstrap/cache/*
 laravel/database/database.sqlite
+laravel/.phpunit.result.cache
 
 # General
 .DS_Store
