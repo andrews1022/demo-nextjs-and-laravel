@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase; // Standard PHPUnit for pure Unit tests
 use App\Models\Post;
+use PHPUnit\Framework\TestCase;
 
 class PostTest extends TestCase
 {
