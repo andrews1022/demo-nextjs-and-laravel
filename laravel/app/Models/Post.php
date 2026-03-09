@@ -42,4 +42,14 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class);
     }
+
+    /**
+     * Accessor to calculate the reading time of the post
+     *
+     * @return int
+     */
+    public function getReadingTimeAttribute(): int
+    {
+        return ceil(str_word_count($this->body) / 200);
+    }
 }
