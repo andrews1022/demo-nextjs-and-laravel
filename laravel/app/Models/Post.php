@@ -44,12 +44,11 @@ class Post extends Model
     }
 
     /**
-     * Accessor to calculate the reading time of the post
-     *
-     * @return int
+     * Calculates estimated reading time in minutes (200 words per minute).
      */
-    public function getReadingTimeAttribute(): int
+    public function getReadingTime(): int
     {
-        return ceil(str_word_count($this->body) / 200);
+        $wordCount = str_word_count($this->body);
+        return (int) ceil($wordCount / 200);
     }
 }
